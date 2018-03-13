@@ -52,6 +52,18 @@ const domains = _.map([
     transport: 'XHR',
     url: `https://bam.nr-data.net/events/1/9d9c2d354f?a=16466058&ref=https://workspace.ibm.com&${noCache}`
   }, {
+    domain: 'cloudfront.net',
+    external: true,
+    method: 'GET',
+    info: {
+      description: 'Whether you’re looking for compute power, database storage, content delivery or other functionality, AWS has the services to help you build sophisticated applications with increased flexibility, scalability and reliability.',
+      icon: 'https://a0.awsstatic.com/main/images/site/fav/favicon.ico',
+      owner: 'Amazon Web Services, Inc.',
+      url: 'https://aws.amazon.com'
+    },
+    transport: 'IMG',
+    url: `https://d24cgw3uvb9a9h.cloudfront.net/zoom.ico`
+  }, {
     domain: 'idaas.iam.ibm.com',
     external: true,
     info: {
@@ -97,18 +109,6 @@ const domains = _.map([
     },
     transport: 'IMG',
     url: `https://zoom.us/zoom.ico`
-  }, {
-    domain: 'cloudfront.net',
-    external: true,
-    method: 'GET',
-    info: {
-      description: 'Whether you’re looking for compute power, database storage, content delivery or other functionality, AWS has the services to help you build sophisticated applications with increased flexibility, scalability and reliability.',
-      icon: 'https://a0.awsstatic.com/main/images/site/fav/favicon.ico',
-      owner: 'Amazon Web Services, Inc.',
-      url: 'https://aws.amazon.com'
-    },
-    transport: 'IMG',
-    url: `https://d24cgw3uvb9a9h.cloudfront.net/zoom.ico`
   }
 ], data => {
   const {internal, domain} = data;
