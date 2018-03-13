@@ -85,6 +85,30 @@ const domains = _.map([
     },
     transport: 'XHR',
     url: `https://nps.mybluemix.net/survey/?${noCache}`
+  }, {
+    domain: 'zoom.us',
+    external: true,
+    method: 'GET',
+    info: {
+      description: 'Zoom is the leader in modern enterprise video communications, with an easy, reliable cloud platform for video and audio conferencing, chat, and webinars across mobile, desktop, and room systems',
+      icon: 'https://d24cgw3uvb9a9h.cloudfront.net/zoom.ico',
+      owner: 'Zoom Video Communications, Inc.',
+      url: 'https://zoom.us'
+    },
+    transport: 'IMG',
+    url: `https://zoom.us/zoom.ico`
+  }, {
+    domain: 'cloudfront.net',
+    external: true,
+    method: 'GET',
+    info: {
+      description: 'Whether you’re looking for compute power, database storage, content delivery or other functionality, AWS has the services to help you build sophisticated applications with increased flexibility, scalability and reliability.',
+      icon: 'https://a0.awsstatic.com/main/images/site/fav/favicon.ico',
+      owner: 'Amazon Web Services, Inc.',
+      url: 'https://aws.amazon.com'
+    },
+    transport: 'IMG',
+    url: `https://d24cgw3uvb9a9h.cloudfront.net/zoom.ico`
   }
 ], data => {
   const {internal, domain} = data;
