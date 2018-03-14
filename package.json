@@ -4,8 +4,8 @@
   "description": "Test browser communication for domains, http headers, protocols etc. for use with IBM Waston Workspace",
   "private": true,
   "engines": {
-    "node": ">=6.11.5",
-    "npm": "4.6.1"
+    "node": ">=6.7.0",
+    "npm": ">=3.10.3"
   },
   "scripts": {
     "start": "node server.js",
