@@ -32,14 +32,13 @@ app.use("/protocol", function (req, res, next) {
   res.sendStatus(200);
 });
 
-app.use('/index.html', (req, res, next) => { res.redirect('/'); next(); });
-
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
 
 const WebSocket = require('ws');
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 wss.on('connection', function(ws, req) {
+  console.log('socket connected');
   ws.on('message', function(message) {
     console.log('received: %s', message);
   });
