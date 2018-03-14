@@ -1,28 +1,51 @@
-var path = require('path');
+
+const autoPrefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 
+const layoutLoaders = [
+  'style-loader',
+  'css-loader',
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [
+        autoPrefixer({
+          browsers: 'last 3 versions'
+        })
+      ]
+    }
+  }
+];
+
 var config = {
+  bail: true,
   entry: APP_DIR + '/index.js',
   output: {
     filename: 'js/[hash].bundle.js',
     path: BUILD_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?/,
-        include: APP_DIR,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        include: APP_DIR
       }, {
         test: /\.json$/,
         loader: 'json-loader'
       }, {
-        test: /\.scss?/,
-        loader: 'style-loader!css-loader!sass-loader'
+        test: /\.css$/,
+        use: layoutLoaders
+      },
+      {
+        test: /\.s?css$/,
+        use: layoutLoaders.concat(['sass-loader'])
       }
     ]
   },
@@ -32,15 +55,14 @@ var config = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
-    new webpack.optimize.DedupePlugin(),
+    new UglifyJSPlugin({ uglifyOptions: { compress: { warnings: false, comparisons: false } } }),
     new HtmlWebpackPlugin({
       favicon: 'dist/favicon.ico',
       filename: `index.html`,
       template: 'src/index.template.html',
       title: 'Watson Workspace - Diagnostics',
       inject: 'body'
-  })
+    })
   ],
   resolve: {
     alias: {
@@ -54,6 +76,6 @@ var config = {
   }
 };
 
-console.log('*** BUILD WEBPACK')
+console.log('*** BUILD WEBPACK ***');
 
 module.exports = config;
