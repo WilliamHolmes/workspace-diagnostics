@@ -9,8 +9,7 @@ const app = express();
 
 app.disable('x-powered-by');
 
-app.set('host', process.env.HOST || '0.0.0.0');
-app.set('port', process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(/\/((?!js).)*/, nocache());
@@ -32,7 +31,7 @@ app.use("/protocol", function (req, res, next) {
   res.sendStatus(200);
 });
 
-// app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 const WebSocket = require('ws');
 const server = http.createServer(app);
@@ -45,6 +44,6 @@ wss.on('connection', function(ws, req) {
   ws.send('connected');
 });
 
-app.listen(app.get('port'), () => {
-  console.log('Listening on %d', app.get('port'));
+app.listen(port, () => {
+  console.log('Listening on %d', port);
 });
