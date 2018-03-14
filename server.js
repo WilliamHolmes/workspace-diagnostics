@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 const WebSocket = require('ws');
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server, path: '/echo'});
+const wss = new WebSocket.Server({ server });
 wss.on('connection', function(ws, req) {
   console.log('socket connected');
   ws.on('message', function(message) {

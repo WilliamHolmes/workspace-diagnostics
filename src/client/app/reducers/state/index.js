@@ -157,7 +157,7 @@ exports.protocols = [
     transport: 'XHR'
   }, {
     protocol: 'WSS',
-    url: `${isHTTPS ? 'wss' : 'ws'}://${location.host}/echo`,
+    url: `${isHTTPS ? 'wss' : 'ws'}://${location.host}`,
     transport: 'WEBSOCKET'
   }
 ];
