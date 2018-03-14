@@ -54,4 +54,6 @@ var config = {
   }
 };
 
+console.log('*** BUILD WEBPACK')
+
 module.exports = config;
