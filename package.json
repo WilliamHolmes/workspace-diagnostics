@@ -4,13 +4,12 @@
   "description": "Test browser communication for domains, http headers, protocols etc. for use with IBM Waston Workspace",
   "private": true,
   "engines": {
-    "node": "6.7.0",
-    "npm": "4.6.1"
+    "node": "6.x",
+    "npm": "4.x"
   },
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --config webpack.config.js --progress",
-    "prebuild": "npm prune"
+    "build": "cross-env webpack --config webpack.config.js --progress"
   },
   "dependencies": {
     "body-parser": "1.18.2",
