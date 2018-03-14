@@ -47,7 +47,7 @@ wss.on('connection', function(ws, req) {
   ws.send('connected');
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(app.get('port'), () => {
   console.log('Listening on %d', app.get('port'));

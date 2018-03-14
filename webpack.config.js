@@ -2,7 +2,7 @@ var path = require('path');
 const webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
+var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client/app');
 
 var config = {
@@ -35,7 +35,7 @@ var config = {
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
-      favicon: 'public/favicon.ico',
+      favicon: 'dist/favicon.ico',
       filename: `index.html`,
       template: 'src/index.template.html',
       title: 'Watson Workspace - Diagnostics',
