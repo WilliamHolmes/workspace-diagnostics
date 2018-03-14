@@ -6,4 +6,4 @@ node_modules_linux
 server/localdev-config.json
 
 dist/*
-!distpublic/*.ico
+!dist/*.ico
