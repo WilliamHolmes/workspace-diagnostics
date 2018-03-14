@@ -34,20 +34,17 @@ app.use("/protocol", function (req, res, next) {
 
 app.use('/index.html', (req, res, next) => { res.redirect('/'); next(); });
 
+app.use(express.static(path.join(__dirname, 'dist')));
+
 const WebSocket = require('ws');
-
 const server = http.createServer(app);
-
 const wss = new WebSocket.Server({ server });
-
 wss.on('connection', function(ws, req) {
   ws.on('message', function(message) {
     console.log('received: %s', message);
   });
   ws.send('connected');
 });
-
-app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(app.get('port'), () => {
   console.log('Listening on %d', app.get('port'));
