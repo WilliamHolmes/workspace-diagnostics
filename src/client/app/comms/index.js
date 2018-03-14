@@ -1,7 +1,5 @@
 import { saveAs } from 'filesaver.js';
 
-// import FileSaver from 'filesaver.js';
-
 import moment from 'moment';
 import _ from 'underscore';
 
@@ -22,22 +20,8 @@ exports.doDownload2 = body => {
 }
 
 exports.doDownload = body => {
-  // let blob = new Blob([body], { type: "application/octet-stream" });
-  // let reader = new FileReader();
-  // reader.onload = function (event) {
-  //   let save = document.createElement('a');
-  //   save.href     = window.URL.createObjectURL(blob);
-  //   save.download = fileName;
-  //   document.body.appendChild(save);
-  //   save.click();
-  //   document.body.removeChild(save);
-  //   window.URL.revokeObjectURL(save.href);
-    // let url = window.URL.createObjectURL(blob);
-    // window.location.href = url;
-    //
     var blob = new Blob([body], {type: "text/plain;charset=utf-8"});
     saveAs(blob, fileName);
-   // reader.readAsDataURL(blob);
 }
 
 const doXHR = data => {
