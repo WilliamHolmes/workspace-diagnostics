@@ -31,14 +31,12 @@ app.use("/protocol", function (req, res, next) {
   res.sendStatus(200);
 });
 
-// app.use(express.static(path.join(__dirname, 'dist')));
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/dist/index.html');
-});
-
 const WebSocket = require('ws');
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
 wss.on('connection', function(ws, req) {
   console.log('socket connected');
   ws.on('message', function(message) {
@@ -47,6 +45,6 @@ wss.on('connection', function(ws, req) {
   ws.send('connected');
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log('Listening on %d', port);
 });
