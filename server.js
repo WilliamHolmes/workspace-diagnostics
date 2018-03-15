@@ -31,7 +31,8 @@ app.use("/protocol", function (req, res, next) {
   res.sendStatus(200);
 });
 
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
+app.get(['/'], (req, res, next) => { req.url = '/'; next(); });
 
 const WebSocket = require('ws');
 const server = http.createServer(app);
