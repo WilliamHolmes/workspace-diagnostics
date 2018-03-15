@@ -32,7 +32,9 @@ app.use("/protocol", function (req, res, next) {
 });
 
 // app.use(express.static(path.join(__dirname, 'dist')));
-app.get(['/'], (req, res, next) => { req.url = '/'; next(); });
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/dist/index.html');
+});
 
 const WebSocket = require('ws');
 const server = http.createServer(app);
