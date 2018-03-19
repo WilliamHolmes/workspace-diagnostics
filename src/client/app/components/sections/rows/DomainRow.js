@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DomainRow = ({ domain, state, details, time }) => (
-  <div className={'row'}>
+const DomainRow = ({ domain, internal, state, details, time }) => (
+  <div className={'row'} data-domain-type={internal ? 'internal': 'external'}>
     <input type={'radio'} name={'expand'}/>
     <span className={'cell primary'} data-label={'Status'}>
       <span className={`service service-${state}`}></span>
