@@ -4,7 +4,7 @@ import Actions from './Actions';
 const AppHeader = ({ store }) => (
   <div className={'app-header'}>
     <img src={'/favicon.ico'}/>
-    <div className={'app-header-title'}>{'WW Diagnostics DashBoard'}</div>
+    <div className={'app-header-title'}>{'WW Diagnostics DashBoard - Browser Communication'}</div>
     <Actions store={store}/>
   </div>
 )
