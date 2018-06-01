@@ -25,6 +25,9 @@ const domains = _.map([
     domain: 'login.workspace.ibm.com',
     internal: true
   }, {
+    domain: 'media.workspace.ibm.com',
+    internal: true
+  }, {
     domain: 'meetings.workspace.ibm.com',
     internal: true
   }, {
