@@ -14,6 +14,14 @@ const port = process.env.PORT || 3000;
 app.use(compression());
 app.use(/\/((?!js).)*/, nocache());
 
+app.use("/headers/Authorization", function (req, res, next) {
+  if (req.headers['authorization'] === 'Basic SGVsbG8gV29ybGQ=') {
+    res.sendStatus(202);
+  } else {
+    res.sendStatus(400);
+  }
+});
+
 app.use("/headers/:header", function (req, res, next) {
   const { params: { header = '' } } = req;
   if (req.headers[header.toLowerCase()]) {
