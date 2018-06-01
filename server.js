@@ -18,7 +18,7 @@ app.use("/headers/Authorization", function (req, res, next) {
   if (req.headers['authorization'] === 'Basic SGVsbG8gV29ybGQ=') {
     res.sendStatus(200);
   } else {
-    res.sendStatus(400);
+    res.sendStatus(406);
   }
 });
 
